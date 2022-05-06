@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<div class="col-12 mx-auto align-self-center">
+    <table id="reportTable" class="table table-bordered table-hover table-responsive-md caption-top">
+        <caption>{{ month }} {{ year }} Report</caption>
+        <thead class="thead-light">
+        <tr>
+            <th scope="col" style="width:15%">Publisher</th>
+            <th scope="col" style="width:10%">Hours</th>
+            <th scope="col" style="width:10%">RV</th>
+            <th scope="col" style="width:10%">BS</th>
+            <th scope="col" style="width:10%">Placements</th>
+            <th scope="col" style="width:10%">Videos</th>
+            <th scope="col" style="width:25%">Remarks</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for publisher in publishers %}
+            <tr>
+                <th scope="row">{{ publisher.name }}</th>
+                {% if publisher.report %}
+                <td>{{ publisher.report.hours }}</td>
+                <td>{{ publisher.report.return_visits }}</td>
+                <td>{{ publisher.report.bible_studies }}</td>
+                <td>{{ publisher.report.placements }}</td>
+                <td>{{ publisher.report.videos }}</td>
+                <td>{{ publisher.report.remarks |linebreaks }}</td>
+                {% else %}
+                    <td colspan="7" align="center">No report</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button class="float-button" onclick="downloadReport('{{ month }}-{{ year }}', '{{ month }} {{ year }} Field Service Report');"><i class="fa fa-print"></i></button>
+<script src="{% static 'jspdf.umd.min.js' %}"></script>
+<script src="{% static 'jspdf.plugin.autotable.js' %}"></script>
+<script src="{% static 'report.js' %}"></script>
+<script src="{% static 'font-awesome/js/all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'report.css' %}">
+{% endblock %}

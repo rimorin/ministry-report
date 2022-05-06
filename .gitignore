@@ -1,0 +1,7 @@
+.jw_report
+.python-version
+docker-compose.yaml
+data
+deploy.sh
+static
+__pycache__
