@@ -1,0 +1,11 @@
+.float-button{
+    position:fixed;
+    width:40px;
+    height:40px;
+    bottom:1vh;
+    right:1vw;
+    border-radius:50px;
+    text-align:center;
+    border: none;
+    text-decoration: none;
+}

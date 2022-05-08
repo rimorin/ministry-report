@@ -7,7 +7,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <input type="hidden" name="code" value="{{ congregation_code }}"/>
-        <input type="submit" value="Submit" name="submit_report" class="btn btn-success">
+        <input type="submit" value="Submit" name="submit_report" class="btn btn-primary">
     </form>
 </div>
 {% endblock %}
