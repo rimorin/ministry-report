@@ -25,7 +25,7 @@
                 <td>{{ publisher.report.bible_studies }}</td>
                 <td>{{ publisher.report.placements }}</td>
                 <td>{{ publisher.report.videos }}</td>
-                <td>{{ publisher.report.remarks |linebreaks }}</td>
+                <td>{{ publisher.report.remarks|linebreaks|default_if_none:"" }}</td>
                 {% else %}
                     <td colspan="7" align="center">No report</td>
                 {% endif %}
