@@ -1,5 +1,6 @@
 FROM python:3.8
 # Allow statements and log messages to immediately appear in the Knative logs
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED True
 RUN mkdir /app
 WORKDIR /app
