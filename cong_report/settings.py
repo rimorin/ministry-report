@@ -28,11 +28,11 @@ DEBUG = os.environ.get("DEBUG", "true") == "true"
 
 ALLOWED_HOSTS = ["*"]
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://ministryreport.live",
-#     "https://www.ministryreport.live",
-#     "https://ministry-report-ayqgb3rr4a-uc.a.run.app"
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://ministryreport.live",
+    "https://www.ministryreport.live",
+    "https://ministry-report-ayqgb3rr4a-uc.a.run.app"
+]
 
 
 # Application definition
