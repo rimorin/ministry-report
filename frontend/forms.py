@@ -48,9 +48,14 @@ class ReportForm(forms.ModelForm):
 
     def clean(self):
         self.cleaned_data = super(ReportForm, self).clean()
-        if not self.cleaned_data['hours'] : self.cleaned_data['hours'] = 0
-        if not self.cleaned_data['videos'] : self.cleaned_data['videos'] = 0
-        if not self.cleaned_data['return_visits'] : self.cleaned_data['return_visits'] = 0
-        if not self.cleaned_data['bible_studies'] : self.cleaned_data['bible_studies'] = 0
-        if not self.cleaned_data['placements'] : self.cleaned_data['placements'] = 0
+        if not self.cleaned_data["hours"]:
+            self.cleaned_data["hours"] = 0
+        if not self.cleaned_data["videos"]:
+            self.cleaned_data["videos"] = 0
+        if not self.cleaned_data["return_visits"]:
+            self.cleaned_data["return_visits"] = 0
+        if not self.cleaned_data["bible_studies"]:
+            self.cleaned_data["bible_studies"] = 0
+        if not self.cleaned_data["placements"]:
+            self.cleaned_data["placements"] = 0
         return self.cleaned_data

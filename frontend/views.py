@@ -103,8 +103,12 @@ def cong_submission(request, congregation_code=DEFAULT_CONGREGATION):
         if existing_next_month_report:
             existing_next_month_report.hours = form.cleaned_data["hours"]
             existing_next_month_report.placements = form.cleaned_data["placements"]
-            existing_next_month_report.bible_studies = form.cleaned_data["bible_studies"]
-            existing_next_month_report.return_visits = form.cleaned_data["return_visits"]
+            existing_next_month_report.bible_studies = form.cleaned_data[
+                "bible_studies"
+            ]
+            existing_next_month_report.return_visits = form.cleaned_data[
+                "return_visits"
+            ]
             existing_next_month_report.videos = form.cleaned_data["videos"]
             existing_next_month_report.remarks = form.cleaned_data["remarks"]
             existing_next_month_report.save()

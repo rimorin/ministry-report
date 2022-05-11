@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
     "https://ministryreport.live",
     "https://www.ministryreport.live",
-    "https://ministry-report-ayqgb3rr4a-uc.a.run.app"
+    "https://ministry-report-ayqgb3rr4a-uc.a.run.app",
 ]
 
 
