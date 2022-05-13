@@ -3,11 +3,12 @@
 {% load crispy_forms_tags %}
 {% block main %}
 <div class="col-8 mx-auto align-self-center">
-    <form action="/" method="post">
+    <form action="/" method="post" onreset="$('#id_publisher').val(null).trigger('change');">
         {% csrf_token %}
         {{ form|crispy }}
         <input type="hidden" name="code" value="{{ congregation_code }}"/>
         <input type="submit" value="Submit" name="submit_report" class="btn btn-primary">
+        <input type="reset" value="Reset" class="btn btn-primary">
     </form>
 </div>
 {% endblock %}
