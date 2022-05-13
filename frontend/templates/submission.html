@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% block main %}
 <div class="col-8 mx-auto align-self-center">
+    <h3 class="text-center">{{ submission_date }}</h3>
     <form action="/" method="post" onreset="$('#id_publisher').val(null).trigger('change');">
         {% csrf_token %}
         {{ form|crispy }}
