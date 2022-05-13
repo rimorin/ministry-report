@@ -9,3 +9,7 @@
     border: none;
     text-decoration: none;
 }
+
+td, th {
+    text-align: center;
+}
