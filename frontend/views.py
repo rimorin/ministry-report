@@ -3,7 +3,7 @@ from django.shortcuts import render
 from congregation.models import Congregation, Group, Publisher
 from ministry.models import Report
 from .forms import ReportForm
-from datetime import datetime, timedelta
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from dal import autocomplete
 from django.contrib.auth.decorators import login_required
@@ -15,6 +15,9 @@ DEFAULT_LOGIN_URL = "/admin/login/?next=/admin/"
 
 
 class PublisherAutocomplete(autocomplete.Select2QuerySetView):
+    def get_result_label(self, item):
+        return item.name
+
     def get_queryset(self):
         qs = Publisher.objects.all()
         if self.q:

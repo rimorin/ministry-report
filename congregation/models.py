@@ -35,4 +35,4 @@ class Publisher(models.Model):
     remarks = models.TextField(max_length=5000, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.id} - {self.name}"

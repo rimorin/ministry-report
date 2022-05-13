@@ -30,11 +30,6 @@ class ReportForm(forms.ModelForm):
         labels = {
             "publisher": "Publisher",
         }
-        error_messages = {
-            "name": {
-                "max_length": "This writer's name is too long.",
-            },
-        }
         widgets = {
             "publisher": autocomplete.ModelSelect2(
                 url="publisher-autocomplete",
