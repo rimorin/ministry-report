@@ -27,7 +27,7 @@ class PublisherAutocomplete(autocomplete.Select2QuerySetView):
                 ),
                 name__icontains=self.q,
             )
-        return qs
+        return qs.order_by("name")
 
 
 def get_date(year=None, month=None):
