@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
-from congregation.models import Congregation, Group, Publisher
+from congregation.models import STATUS_ACTIVE, Congregation, Group, Publisher
 from ministry.models import Report
 from .forms import ReportForm
 from datetime import datetime
@@ -19,7 +19,7 @@ class PublisherAutocomplete(autocomplete.Select2QuerySetView):
         return item.name
 
     def get_queryset(self):
-        qs = Publisher.objects.all()
+        qs = Publisher.objects.filter(status=STATUS_ACTIVE)
         if self.q:
             qs = qs.filter(
                 group__congregation__code=self.forwarded.get(
@@ -51,8 +51,7 @@ def get_report(request, group_id=DEFAULT_CONG_GROUP, year=None, month=None):
         raise PermissionError("You are not authorized to view this report")
 
     start_date, end_date = get_date(year=year, month=month)
-
-    group_publishers = Publisher.objects.filter(group_id=group_id)
+    group_publishers = Publisher.objects.filter(group_id=group_id, status=STATUS_ACTIVE)
 
     for publisher in group_publishers:
         publisher_report = Report.objects.filter(
