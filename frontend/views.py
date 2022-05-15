@@ -51,7 +51,9 @@ def get_report(request, group_id=DEFAULT_CONG_GROUP, year=None, month=None):
         raise PermissionError("You are not authorized to view this report")
 
     start_date, end_date = get_date(year=year, month=month)
-    group_publishers = Publisher.objects.filter(group_id=group_id, status=STATUS_ACTIVE).order_by("id")
+    group_publishers = Publisher.objects.filter(
+        group_id=group_id, status=STATUS_ACTIVE
+    ).order_by("id")
 
     for publisher in group_publishers:
         publisher_report = Report.objects.filter(
