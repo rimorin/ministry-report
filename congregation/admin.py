@@ -20,8 +20,8 @@ class ReportInline(admin.TabularInline):
 
 class PubInline(admin.TabularInline):
     model = Publisher
-    fields = ("id", "name")
-    readonly_fields = ("id", "name")
+    fields = ("id", "name", "status")
+    readonly_fields = ("id", "name", "status")
     can_delete = False
     extra = 0
     max_num = 0

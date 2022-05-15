@@ -1,6 +1,9 @@
 from unicodedata import name
 from django.db import models
 
+STATUS_INACTIVE = "0"
+STATUS_ACTIVE = "1"
+
 # Create your models here.
 class Congregation(models.Model):
     code = models.CharField(max_length=24)
@@ -25,7 +28,7 @@ class Publisher(models.Model):
     group = models.ForeignKey("congregation.Group", on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=256)
     status = models.CharField(
-        max_length=5, choices=(("0", "Inactive"), ("1", "Active"))
+        max_length=5, choices=((STATUS_INACTIVE, "Inactive"), (STATUS_ACTIVE, "Active"))
     )
     regular_pioneer = models.BooleanField(default=False)
     ministerial_servant = models.BooleanField(default=False)
