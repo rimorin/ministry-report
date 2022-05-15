@@ -16,6 +16,7 @@ class ReportInline(admin.TabularInline):
     can_delete = False
     extra = 0
     max_num = 0
+    show_change_link = True
 
 
 class PubInline(admin.TabularInline):
@@ -25,6 +26,7 @@ class PubInline(admin.TabularInline):
     can_delete = False
     extra = 0
     max_num = 0
+    show_change_link = True
 
 
 class PubAdmin(admin.ModelAdmin):
@@ -46,6 +48,7 @@ class GroupInline(admin.TabularInline):
     can_delete = False
     extra = 0
     max_num = 0
+    show_change_link = True
 
 
 class CongAdmin(admin.ModelAdmin):
